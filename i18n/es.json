@@ -6,12 +6,12 @@
   "description": "Plugin gratuito para Premiere Pro que añade a la línea de tiempo una superposición de zona segura para Instagram Reels, YouTube Shorts y TikTok con un clic. Subtítulos, caras y CTA fuera de la interfaz.",
   "eyebrow": "Plugin para Adobe Premiere Pro",
   "h1": "Safe Zone Pro",
-  "lead": "Estás montando un vertical y no ves dónde la interfaz de Reels, Shorts y TikTok se va a comer tus subtítulos, caras y CTA.",
+  "lead": "Montas Shorts/Reels verticales y la interfaz de la red social te tapa la imagen.",
   "body": "Safe Zone Pro suelta una zona segura directamente en tu timeline como capa aparte. Un clic y está puesta. Otro y desaparece antes de exportar.",
   "features": [
     "Pon y quita la zona con un clic",
     "Va en su propia pista: tu secuencia ni se entera",
-    "Las zonas se actualizan cuando las plataformas mueven su interfaz"
+    "Al pulsar Remove, el overlay se borra de la secuencia y del proyecto"
   ],
   "cta": "Bajar para Premiere",
   "meta": "Premiere Pro 2024+ · macOS y Windows",
