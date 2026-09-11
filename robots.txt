@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cptscumbag.github.io/safe-zone-pro/sitemap.xml

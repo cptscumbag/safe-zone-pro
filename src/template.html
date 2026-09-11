@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{url}}">
+{{hreflangs}}
+<link rel="icon" href="{{base}}media/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Safe Zone Pro">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{url}}">
+<meta property="og:image" content="{{abs}}media/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="{{og_locale}}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{description}}">
+<meta name="twitter:image" content="{{abs}}media/og.jpg">
+<script type="application/ld+json">{{jsonld}}</script>
+<style>
+  :root {
+    --ink: #081828;
+    --muted: #5b6673;
+    --bg: #fff;
+    --yellow: #f5c400;
+    --win: #1a1a1a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+  .product {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) 1fr;
+    gap: 64px;
+    align-items: center;
+    min-height: calc(100vh - 110px);
+    padding: 80px 0;
+  }
+  .hazard {
+    background: repeating-linear-gradient(-45deg, #111 0 9px, var(--yellow) 9px 18px);
+  }
+  .icon {
+    width: 84px; height: 84px;
+    border-radius: 20px;
+    padding: 9px;
+    box-shadow: 0 6px 20px rgba(8, 24, 40, .25);
+    margin-bottom: 20px;
+  }
+  .icon span {
+    display: grid; place-items: center;
+    width: 100%; height: 100%;
+    border-radius: 11px;
+    background: var(--yellow);
+    color: #111; font-weight: 900; font-size: 15px; line-height: 1; text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .eyebrow { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
+  .product h1 {
+    margin: 0 0 20px;
+    font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  }
+  .product p { margin: 0 0 14px; }
+  .features { margin: 18px 0 28px; padding: 0; list-style: none; }
+  .features li { padding-left: 22px; position: relative; margin: 6px 0; }
+  .features li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 10px; height: 10px; border-radius: 2px;
+    background: repeating-linear-gradient(-45deg, #111 0 2px, var(--yellow) 2px 4px);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: #fff;
+    padding: 14px 26px; border-radius: 999px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: transform .15s, background .15s;
+  }
+  .btn:hover { background: #1b3048; transform: translateY(-1px); }
+  .btn .pr {
+    width: 22px; height: 22px; border-radius: 5px;
+    background: #00005b; color: #9999ff;
+    display: grid; place-items: center; font-size: 10px; font-weight: 800;
+  }
+  .meta { margin-top: 14px; font-size: 13px; color: var(--muted); }
+  .note {
+    margin-top: 18px; padding: 12px 14px;
+    border-left: 3px solid var(--yellow); background: #fffbe6;
+    font-size: 14px; color: #3d4650;
+  }
+
+  .window {
+    background: var(--win);
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 30px 80px -20px rgba(8,24,40,.45);
+    overflow: hidden;
+  }
+  .window img, .window video { display: block; width: 100%; height: auto; }
+
+  footer {
+    padding: 40px 0 60px; font-size: 14px; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center; justify-content: space-between;
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; }
+  .langs a { color: var(--muted); text-decoration: none; }
+  .langs a:hover { color: var(--ink); text-decoration: underline; }
+  .langs [aria-current] { color: var(--ink); font-weight: 600; }
+
+  @media (max-width: 860px) {
+    .product { grid-template-columns: 1fr; gap: 40px; min-height: 0; padding: 48px 0 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <main class="product">
+    <div>
+      <div class="icon hazard"><span>SAFE<br>ZONE</span></div>
+      <p class="eyebrow">{{eyebrow}}</p>
+      <h1>{{h1}}</h1>
+      <p>{{lead}}</p>
+      <p>{{body}}</p>
+      <ul class="features">
+{{features}}
+      </ul>
+      <a class="btn" href="{{download}}"><span class="pr">Pr</span>{{cta}}</a>
+      <div class="meta">{{meta}}</div>
+      <p class="note">{{install_note}}</p>
+    </div>
+
+    <div class="window">
+{{media}}
+    </div>
+  </main>
+
+  <footer>
+    <div>© 2026 · {{footer}}</div>
+    <nav aria-label="{{lang_label}}">
+      <ul class="langs">
+{{langs}}
+      </ul>
+    </nav>
+  </footer>
+</div>
+
+</body>
+</html>

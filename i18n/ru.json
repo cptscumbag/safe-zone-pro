@@ -1,0 +1,23 @@
+{
+  "lang": "ru",
+  "hreflang": "ru",
+  "name": "Русский",
+  "title": "Safe Zone Pro — плагин безопасной зоны для Premiere Pro (Reels, Shorts, TikTok)",
+  "description": "Бесплатный плагин для Premiere Pro: оверлей безопасной зоны Instagram Reels, YouTube Shorts и TikTok на таймлайне в один клик. Титры, лица и CTA не перекроет интерфейс.",
+  "eyebrow": "Плагин для Adobe Premiere Pro",
+  "h1": "Safe Zone Pro",
+  "lead": "Монтируешь вертикалку — и не видишь, где интерфейс Reels, Shorts и TikTok закроет титры, лица и CTA.",
+  "body": "Safe Zone Pro кладёт оверлей безопасной зоны прямо на таймлайн отдельным слоем. Один клик — зона на месте, ещё один — убрана перед экспортом.",
+  "features": [
+    "Добавление и удаление зоны в один клик",
+    "Оверлей отдельной дорожкой — ничего не ломает в секвенции",
+    "Зоны обновляются вместе с интерфейсами платформ"
+  ],
+  "cta": "Скачать для Premiere",
+  "meta": "Premiere Pro 2024+ · macOS и Windows",
+  "alt": "Safe Zone Pro в интерфейсе Premiere Pro: оверлей безопасной зоны вертикального видео на таймлайне",
+  "video_title": "Демо Safe Zone Pro: добавление и удаление безопасной зоны в Premiere Pro",
+  "footer": "Adobe и Premiere Pro — товарные знаки Adobe Inc.",
+  "lang_label": "Язык",
+  "install_note": "При установке Premiere покажет предупреждение, что плагин не из Marketplace. Это нормально — жми «продолжить»."
+}
