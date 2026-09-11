@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safe Zone Pro — BuiltFor</title>
+<style>
+  :root {
+    --ink: #081828;
+    --muted: #5b6673;
+    --bg: #fff;
+    --yellow: #f5c400;
+    --win: #1a1a1a;
+    --panel: #232323;
+    --line: #2f2f2f;
+    --blue: #2d8ceb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- шапка ---------- */
+  header { padding: 120px 0 80px; }
+  header h1 {
+    margin: 0;
+    font-size: clamp(64px, 12vw, 120px);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  header a { color: var(--ink); font-size: 15px; text-decoration: none; }
+  header a:hover { text-decoration: underline; }
+
+  /* ---------- продукт ---------- */
+  .product {
+    display: grid;
+    grid-template-columns: minmax(280px, 360px) 1fr;
+    gap: 64px;
+    align-items: center;
+    padding: 80px 0 120px;
+  }
+  .hazard {
+    background: repeating-linear-gradient(-45deg, #111 0 9px, var(--yellow) 9px 18px);
+  }
+  .icon {
+    width: 84px; height: 84px;
+    border-radius: 20px;
+    padding: 9px;
+    box-shadow: 0 6px 20px rgba(8, 24, 40, .25);
+    margin-bottom: 20px;
+  }
+  .icon span {
+    display: grid; place-items: center;
+    width: 100%; height: 100%;
+    border-radius: 11px;
+    background: var(--yellow);
+    color: #111; font-weight: 900; font-size: 15px; line-height: 1; text-align: center;
+    letter-spacing: -0.02em;
+  }
+  .eyebrow { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
+  .product h2 {
+    margin: 0 0 20px;
+    font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+  }
+  .product p { margin: 0 0 14px; }
+  .features { margin: 18px 0 28px; padding: 0; list-style: none; }
+  .features li { padding-left: 22px; position: relative; margin: 6px 0; }
+  .features li::before {
+    content: ""; position: absolute; left: 0; top: .55em;
+    width: 10px; height: 10px; border-radius: 2px;
+    background: repeating-linear-gradient(-45deg, #111 0 2px, var(--yellow) 2px 4px);
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: #fff;
+    padding: 14px 26px; border-radius: 999px;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    transition: transform .15s, background .15s;
+  }
+  .btn:hover { background: #1b3048; transform: translateY(-1px); }
+  .btn .pr {
+    width: 22px; height: 22px; border-radius: 5px;
+    background: #00005b; color: #9999ff;
+    display: grid; place-items: center; font-size: 10px; font-weight: 800;
+  }
+  .meta { margin-top: 14px; font-size: 13px; color: var(--muted); }
+
+  /* ---------- окно Premiere (вместо телефона) ---------- */
+  .window {
+    background: var(--win);
+    border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 30px 80px -20px rgba(8,24,40,.45);
+    overflow: hidden;
+  }
+  /* Настоящий скрин: media/premiere-screenshot.png — раскомментируй <img>
+     в разметке и удали .titlebar и .mock. */
+  .window img { display: block; width: 100%; height: auto; }
+
+  .titlebar {
+    height: 30px; display: flex; align-items: center; gap: 8px;
+    padding: 0 12px; background: #262626; border-bottom: 1px solid #111;
+  }
+  .titlebar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+  .titlebar i:nth-child(1) { background: #ff5f57; }
+  .titlebar i:nth-child(2) { background: #febc2e; }
+  .titlebar i:nth-child(3) { background: #28c840; }
+  .titlebar span { flex: 1; text-align: center; font-size: 11px; color: #bdbdbd; margin-right: 50px; }
+
+  .mock {
+    aspect-ratio: 16 / 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.8fr;
+    grid-template-rows: 56% 1fr;
+    gap: 3px; padding: 3px;
+    font-size: 10px; color: #8d8d8d;
+  }
+  .pane { background: var(--panel); border-radius: 3px; position: relative; overflow: hidden; }
+  .pane h6 {
+    margin: 0; padding: 6px 8px; font-size: 10px; font-weight: 500; color: #cfcfcf;
+    border-bottom: 1px solid var(--line);
+  }
+  .list { padding: 6px 8px; display: grid; gap: 7px; }
+  .list div { display: flex; gap: 6px; align-items: center; }
+  .list i { width: 7px; height: 7px; border-radius: 1px; flex: none; }
+  .list b { height: 4px; border-radius: 2px; background: #3b3b3b; }
+
+  .plugin .body { padding: 10px 8px; display: grid; gap: 10px; }
+  .plugin strong { color: #fff; font-size: 11px; }
+  .banner { border: 2px solid var(--blue); border-radius: 2px; padding: 8% 0; position: relative; }
+  .banner span {
+    position: absolute; inset: 22% 0;
+    background: var(--yellow);
+    display: grid; place-items: center;
+    color: #111; font-weight: 900; font-size: clamp(10px, 1.6vw, 18px); letter-spacing: -0.02em;
+  }
+  .remove { background: #7a2b2b; border: 1px solid #a04040; color: #fff; text-align: center; padding: 5px; border-radius: 2px; }
+
+  .program { grid-row: 1 / 3; grid-column: 3; display: flex; flex-direction: column; }
+  .program .frame {
+    flex: 1; margin: 8px auto; aspect-ratio: 9 / 16; max-height: calc(100% - 40px);
+    background:
+      linear-gradient(#0000 55%, #3d7d2c 55%, #6fa83b),
+      linear-gradient(#6f9fd8, #c5d8ec 50%);
+    position: relative;
+  }
+  /* сама «безопасная зона» поверх вертикального кадра */
+  .program .frame::after {
+    content: ""; position: absolute; inset: 12% 14% 22% 7%;
+    border: 1px dashed rgba(255,255,255,.85);
+  }
+
+  .timeline { grid-column: 1 / 3; }
+  .tracks { padding: 8px; display: grid; gap: 4px; }
+  .track { height: 13px; position: relative; background: #1a1a1a; border-radius: 2px; }
+  .clip { position: absolute; top: 1px; bottom: 1px; border-radius: 2px; font-size: 8px; color: #eee; padding-left: 4px; line-height: 11px; overflow: hidden; white-space: nowrap; }
+  .sz { background: #5b2366; }
+  .v  { background: #1f6e8c; }
+  .p  { background: #4a2a8a; }
+  .a  { background: #2789c9; }
+  .playhead { position: absolute; top: 26px; bottom: 0; left: 28%; width: 1px; background: var(--blue); }
+
+  footer { padding: 40px 0 60px; font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 860px) {
+    header { padding: 72px 0 40px; }
+    .product { grid-template-columns: 1fr; gap: 40px; padding: 40px 0 80px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>BuiltFor</h1>
+    <a href="mailto:hello@example.com">hello@example.com</a>
+  </header>
+
+  <section class="product">
+    <div>
+      <div class="icon hazard"><span>SAFE<br>ZONE</span></div>
+      <p class="eyebrow">Плагин для Adobe Premiere Pro</p>
+      <h2>Safe Zone Pro</h2>
+      <p>Монтируешь вертикалку — и не видишь, где интерфейс Reels, Shorts и TikTok закроет титры, лица и CTA.</p>
+      <p>Safe Zone Pro кладёт оверлей безопасной зоны прямо на таймлайн отдельным слоем. Один клик — зона на месте, ещё один — убрана перед экспортом.</p>
+      <ul class="features">
+        <li>Добавление и удаление зоны в один клик</li>
+        <li>Оверлей отдельной дорожкой — ничего не ломает в секвенции</li>
+        <li>Зоны обновляются вместе с интерфейсами платформ</li>
+      </ul>
+      <a class="btn" href="#"><span class="pr">Pr</span>Скачать для Premiere</a>
+      <div class="meta">Premiere Pro 2024+ · macOS и Windows</div>
+    </div>
+
+    <div class="window">
+      <img src="media/premiere-screenshot.jpg" alt="Safe Zone Pro в интерфейсе Premiere Pro">
+      <!-- заглушка, пока не было скрина
+      <div class="titlebar"><i></i><i></i><i></i><span>Test — Edited</span></div>
+      <div class="mock" aria-hidden="true">
+        <div class="pane">
+          <h6>Project: Test</h6>
+          <div class="list">
+            <div><i style="background:#1f6e8c"></i><b style="width:60%"></b></div>
+            <div><i style="background:#1f6e8c"></i><b style="width:75%"></b></div>
+            <div><i style="background:#8a2a9a"></i><b style="width:45%"></b></div>
+            <div><i style="background:#8a2a9a"></i><b style="width:45%"></b></div>
+            <div><i style="background:#3a8a2a"></i><b style="width:70%"></b></div>
+            <div><i style="background:#3a8a2a"></i><b style="width:40%"></b></div>
+            <div><i style="background:#1f6e8c"></i><b style="width:55%"></b></div>
+            <div><i style="background:#7a7a1a"></i><b style="width:35%"></b></div>
+          </div>
+        </div>
+        <div class="pane plugin">
+          <h6>Safe Zone Pro</h6>
+          <div class="body">
+            <strong>SAFE ZONE PRO</strong>
+            <div class="banner hazard"><span>SAFE ZONE</span></div>
+            <div class="remove">Remove zone from timeline</div>
+            <div>Safe Zone added to timeline.</div>
+          </div>
+        </div>
+        <div class="pane program">
+          <h6>Program: IMG_7601</h6>
+          <div class="frame"></div>
+        </div>
+        <div class="pane timeline">
+          <h6>IMG_7601 · 00:00:03:26</h6>
+          <div class="tracks">
+            <div class="track"><div class="clip sz" style="left:0;width:86%">SAFE_ZONE_OVERLAY</div></div>
+            <div class="track"><div class="clip v" style="left:50%;width:25%"></div></div>
+            <div class="track"><div class="clip v" style="left:0;width:86%">IMG_4231.MOV</div></div>
+            <div class="track"><div class="clip v" style="left:0;width:18%">IMG_4012</div><div class="clip p" style="left:19%;width:52%">DJI_0115_D.MP4</div></div>
+            <div class="track"><div class="clip a" style="left:0;width:86%"></div></div>
+          </div>
+          <div class="playhead"></div>
+        </div>
+      </div>
+      -->
+    </div>
+  </section>
+
+  <footer>© 2026 · Adobe и Premiere Pro — товарные знаки Adobe Inc.</footer>
+</div>
+
+</body>
+</html>
